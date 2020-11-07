@@ -1,0 +1,55 @@
+//import the Scanner class so we can use it to get input from user
+import java.util.Scanner;
+
+public class Calculator {
+    
+    //public means it has no access restrictions, static means it can be initiated without creating an instance of the class, void means it doesn't return anything
+    public static void main(String[] args) {
+
+        //create a new scanner so we can get and read some user input
+        Scanner reader = new Scanner(System.in);
+        System.out.print("Enter the first number: ");
+
+        // nextDouble() is a pre-existing Java method that reads the next double from the keyboard. We store the input in a variable of type double
+        double first = reader.nextDouble();
+        
+        //ask for an operator character and read the next character from the keyboard
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = reader.next().charAt(0);
+        
+        System.out.print("Enter the second number: ");
+        double second = reader.nextDouble();
+
+         // create a variable to store the result of the equation in
+        double result;
+
+        
+        //could also use else-if statements here
+        switch(operator)
+        {
+            case '+':
+                result = first + second;
+                break;
+
+            case '-':
+                result = first - second;
+                break;
+
+            case '*':
+                result = first * second;
+                break;
+
+            case '/':
+                result = first / second;
+                break;
+
+            // if none of the above cases are true then execute the default case which prints an error message to the console
+            default:
+                System.out.println("Error! operator is not correct");
+                return;
+        }
+        
+        // print the result of the equation to the console
+        System.out.println("Result is " + result);
+    }
+}
